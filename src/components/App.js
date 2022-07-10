@@ -1,19 +1,25 @@
-import { Route, Routes } from 'react-router-dom';
+// import { Route, Routes } from 'react-router-dom';
+import Navigation from './Navigation';
 
-import Container from '../components/Container';
-import { Suspense } from 'react';
+// import Container from '../components/Container';
+// import { Suspense } from 'react';
 
-import Home from '../pages/Home/Home';
+// import AppBar from '../components/AppBar';
+// import Home from '../pages/Home';
+// import Movies from '../pages/Movies/Movies';
 
 function App() {
   return (
-    <Container>
-      <Suspense fallback={<div>Loading...</div>}>
+    <>
+      <Navigation />
+      {/* <Suspense fallback={<div>Loading...</div>}>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<AppBar />} />
+          <Route index element={<Home />} />
+          <Route path="movies" element={<Movies />} />
         </Routes>
-      </Suspense>
-    </Container>
+      </Suspense> */}
+    </>
   );
 }
 
