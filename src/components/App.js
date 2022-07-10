@@ -1,8 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
-import Navigation from './Navigation';
 
 import Container from '../components/Container';
-import { Suspense } from 'react';
+
 import AppBar from './AppBar';
 import Home from '../pages/Home';
 import Movies from '../pages/Movies/Movies';
