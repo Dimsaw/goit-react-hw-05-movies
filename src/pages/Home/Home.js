@@ -8,39 +8,49 @@ export default function Home() {
   const [trendings, setTrendings] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  //   useEffect(() => {
+  //     async function getMovies() {
+  //       try {
+  //         setLoading(true);
+  //         const movies = await getTrending();
+  //         setTrendings(movies);
+  //       } catch (error) {
+  //         console.log(error);
+  //       } finally {
+  //         setLoading(false);
+  //       }
+  //     }
+  //     getMovies();
+  //   }, []);
+
   useEffect(() => {
-    async function getMovies() {
+    const getMovies = async () => {
+      setLoading(true);
       try {
-        setLoading(true);
-        const movies = await getTrending();
-        setTrendings(movies);
+        const { results } = await getTrending();
+        return setTrendings(results);
       } catch (error) {
         console.log(error);
       } finally {
         setLoading(false);
       }
-    }
+    };
     getMovies();
   }, []);
   return (
     <>
       {loading && <div>Грузим.....</div>}
       <h1>Trending films</h1>
+
       <ul>
-        {trendings.map(({ id, title, poster_path }) => (
+        {trendings.map(({ id, title }) => (
           <li key={id}>
             <Link to={`/movies/${id}`}>
-              <img
-                className={s.img}
-                src={`https://image.tmdb.org/t/p/w300${poster_path}`}
-                alt={title}
-              ></img>
               <p className={s.text}> {title}</p>
             </Link>
           </li>
         ))}
       </ul>
-      );
     </>
   );
 }
