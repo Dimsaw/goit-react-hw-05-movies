@@ -13,7 +13,7 @@ export async function getSearchMovies(searchQuery) {
   const response = await axios.get(
     `search/movies?api_key=${KEY}&query=${searchQuery}`
   );
-  return response.data.result;
+  return response.data;
 }
 
 export async function getMovieDetails(movieId) {

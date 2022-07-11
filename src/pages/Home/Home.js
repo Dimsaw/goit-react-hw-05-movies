@@ -8,21 +8,6 @@ export default function Home() {
   const [trendings, setTrendings] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  //   useEffect(() => {
-  //     async function getMovies() {
-  //       try {
-  //         setLoading(true);
-  //         const movies = await getTrending();
-  //         setTrendings(movies);
-  //       } catch (error) {
-  //         console.log(error);
-  //       } finally {
-  //         setLoading(false);
-  //       }
-  //     }
-  //     getMovies();
-  //   }, []);
-
   useEffect(() => {
     const getMovies = async () => {
       setLoading(true);
@@ -39,9 +24,8 @@ export default function Home() {
   }, []);
   return (
     <>
-      {loading && <div>Грузим.....</div>}
       <h1>Trending films</h1>
-
+      {loading && <h3>Loading films....</h3>}
       <ul>
         {trendings.map(({ id, title }) => (
           <li key={id}>
