@@ -5,6 +5,7 @@ import Container from '../components/Container';
 
 import AppBar from './AppBar';
 import Movies from '../pages/Movies/Movies';
+
 import Cast from '../pages/Cast';
 import MoviesDetails from '../pages/MoviesDetails';
 import Reviews from '../pages/Reviews';
