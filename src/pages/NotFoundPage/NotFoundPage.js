@@ -1,5 +1,5 @@
 function NotFoundPage() {
-  return <h1>Sorry, this page is not found</h1>;
+  return <h4>Sorry, this page is not found</h4>;
 }
 
 export default NotFoundPage;

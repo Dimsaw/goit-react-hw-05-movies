@@ -5,7 +5,7 @@ import Reviews from '../Reviews';
 import placeHolder from '../../images/no-image.jpeg';
 import { useParams, Link, Outlet, useLocation } from 'react-router-dom';
 
-const MoviesDetails = () => {
+export default function MoviesDetails() {
   const { movieId } = useParams();
   const [film, setFilm] = useState({});
   const [loading, setLoading] = useState(false);
@@ -30,7 +30,7 @@ const MoviesDetails = () => {
   }, [movieId]);
   const { original_title, vote_average, overview, poster_path } = film;
   return (
-    <main>
+    <>
       {loading && <h3>Loading films....</h3>}
       <Link to={backLink}> Go back </Link>
       {film && (
@@ -80,8 +80,6 @@ const MoviesDetails = () => {
       <Suspense fallback={((<Cast />), (<Reviews />))}>
         <Outlet />
       </Suspense>
-    </main>
+    </>
   );
-};
-
-export default MoviesDetails;
+}
