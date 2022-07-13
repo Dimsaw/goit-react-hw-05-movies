@@ -12,8 +12,8 @@ export default function Home() {
     const getMovies = async () => {
       setLoading(true);
       try {
-        const { results } = await getTrending();
-        return setTrendings(results);
+        const getFilmsTranding = await getTrending();
+        return setTrendings(getFilmsTranding.results);
       } catch (error) {
         console.log(error);
       } finally {

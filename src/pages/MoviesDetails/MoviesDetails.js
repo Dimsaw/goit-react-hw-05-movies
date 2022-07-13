@@ -1,7 +1,5 @@
 import { useState, useEffect, Suspense } from 'react';
 import { getMovieDetails } from '../../secvices/API';
-import Cast from '../Cast';
-import Reviews from '../Reviews';
 import placeHolder from '../../images/no-image.jpeg';
 import { useParams, Link, Outlet, useLocation } from 'react-router-dom';
 
@@ -77,7 +75,7 @@ export default function MoviesDetails() {
           </Link>
         </div>
       </section>
-      <Suspense fallback={((<Cast />), (<Reviews />))}>
+      <Suspense fallback={null}>
         <Outlet />
       </Suspense>
     </>
