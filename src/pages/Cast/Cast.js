@@ -31,7 +31,7 @@ export default function Cast() {
         <ul>
           {cast.map(({ id, name, original_name, profile_path, character }) => (
             <li key={id}>
-              <h4>Name: {name || original_name}</h4>
+              <h4>Name: {name ?? original_name}</h4>
               <h4>Character: {character}</h4>
               <div>
                 <img
@@ -40,7 +40,7 @@ export default function Cast() {
                       ? `https://image.tmdb.org/t/p/w500${profile_path}`
                       : placeHolder
                   }
-                  alt={name || original_name}
+                  alt={name ?? original_name}
                 />
               </div>
             </li>
