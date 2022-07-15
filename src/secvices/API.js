@@ -9,9 +9,9 @@ export async function getTrending() {
   return response.data;
 }
 
-export async function getSearchMovies(searchQuery) {
+export async function getSearchMovies(query) {
   const response = await axios.get(
-    `search/movies?api_key=${KEY}&query=${searchQuery}`
+    `search/movie?api_key=${KEY}&query=${query}`
   );
   return response.data;
 }

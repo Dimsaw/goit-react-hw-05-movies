@@ -12,10 +12,13 @@ export default function Movies() {
   const [searchQuery, setSearchQuery] = useState(query ?? '');
 
   useEffect(() => {
+    if (!query) {
+      return console.log('error');
+    }
     const searchMovies = async () => {
       setLoading(true);
       try {
-        const getSearchFilms = await getSearchMovies();
+        const getSearchFilms = await getSearchMovies(query);
         return setItems(getSearchFilms.results);
       } catch (error) {
         console.log(error);
@@ -24,14 +27,35 @@ export default function Movies() {
       }
     };
     searchMovies();
-  }, []);
+  }, [query, setSearchParams]);
+
+  function onChangeInput(e) {
+    setSearchQuery(e.currentTarget.value);
+  }
+
+  function handleSumbit(e) {
+    e.preventDefault();
+    setSearchParams({ query: searchQuery.toLowerCase().trim() });
+  }
   return (
     <>
+      <form action="" onSubmit={handleSumbit}>
+        <input
+          onChange={onChangeInput}
+          type="text"
+          autoComplete="off"
+          autoFocus
+          name="query"
+          value={searchQuery}
+        />
+        <button type="submit">Search</button>
+      </form>
       {loading && <h3>Loading films....</h3>}
+
       <ul>
         {items.map(({ id, title }) => (
           <li key={id}>
-            <Link to={`/movies/${id}`}>
+            <Link to={`${id}`} state={{ from: location }}>
               <p> {title}</p>
             </Link>
           </li>
