@@ -9,13 +9,13 @@ function AppBar() {
       <header className={s.header}>
         <Navigation />
       </header>
-      <main>
+      <main className={s.main}>
         <Suspense fallback={<div>Loading...</div>}>
           <Outlet />
         </Suspense>
       </main>
-      <footer>
-        <h2> rjytw</h2>
+      <footer className={s.footer}>
+        <h2> Footer</h2>
       </footer>
     </>
   );

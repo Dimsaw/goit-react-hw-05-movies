@@ -3,6 +3,14 @@
   padding-top: 20px;
   padding-bottom: 20px;
   padding-left: 20px;
-  background-color: #0d253f;
+
   box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+
+.main {
+  min-height: 75vh;
+}
+
+.footer {
+  border-top: solid black 1px;
 }
