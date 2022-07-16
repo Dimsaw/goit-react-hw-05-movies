@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
-
+import { ToastContainer } from 'react-toastify';
 import Container from '../components/Container';
 
 import AppBar from './AppBar';
@@ -27,6 +27,7 @@ function App() {
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
+      <ToastContainer autoClose={3000} />
     </Container>
   );
 }

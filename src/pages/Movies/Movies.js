@@ -1,6 +1,9 @@
+import React from 'react';
 import { useState, useEffect } from 'react';
 import { getSearchMovies } from '../../secvices/API';
 import { useLocation, useSearchParams, Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Movies() {
   const [items, setItems] = useState([]);
@@ -12,14 +15,18 @@ export default function Movies() {
   const [searchQuery, setSearchQuery] = useState(query ?? '');
 
   useEffect(() => {
-    if (!query) {
-      return console.log('error');
-    }
     const searchMovies = async () => {
-      setLoading(true);
+      if (!query) {
+        return console.log('form is empty');
+      }
       try {
+        setLoading(true);
         const getSearchFilms = await getSearchMovies(query);
-        return setItems(getSearchFilms.results);
+        if (getSearchFilms.results.length > 0) {
+          return setItems(getSearchFilms.results);
+        } else {
+          return toast.error('We did not find any movies for you!');
+        }
       } catch (error) {
         console.log(error);
       } finally {
@@ -35,7 +42,11 @@ export default function Movies() {
 
   function handleSumbit(e) {
     e.preventDefault();
+
     setSearchParams({ query: searchQuery.toLowerCase().trim() });
+    if (query === '') {
+      return toast.warning('The form is empty');
+    }
   }
   return (
     <>
@@ -51,6 +62,10 @@ export default function Movies() {
         <button type="submit">Search</button>
       </form>
       {loading && <h3>Loading films....</h3>}
+      {/* {items?.length === 0
+        ? toast.error('We did not find any movies for you!')
+        : null}
+      {query === '' ? <h4>Looking for a movie?</h4> : null} */}
 
       <ul>
         {items.map(({ id, title }) => (
