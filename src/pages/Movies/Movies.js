@@ -4,6 +4,7 @@ import { getSearchMovies } from '../../secvices/API';
 import { useLocation, useSearchParams, Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import placeHolder from '../../images/no-image.jpeg';
 
 export default function Movies() {
   const [items, setItems] = useState([]);
@@ -68,9 +69,19 @@ export default function Movies() {
       {query === '' ? <h4>Looking for a movie?</h4> : null} */}
 
       <ul>
-        {items.map(({ id, title }) => (
+        {items.map(({ id, title, poster_path, name, original_title }) => (
           <li key={id}>
             <Link to={`${id}`} state={{ from: location }}>
+              <div>
+                <img
+                  src={
+                    poster_path
+                      ? `https://image.tmdb.org/t/p/w500${poster_path}`
+                      : placeHolder
+                  }
+                  alt={name ?? original_title}
+                />
+              </div>
               <p> {title}</p>
             </Link>
           </li>

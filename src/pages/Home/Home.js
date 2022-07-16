@@ -3,6 +3,7 @@ import { getTrending } from '../../secvices/API';
 
 import { Link } from 'react-router-dom';
 import s from './Home.module.css';
+import placeHolder from '../../images/no-image.jpeg';
 
 export default function Home() {
   const [trendings, setTrendings] = useState([]);
@@ -24,13 +25,24 @@ export default function Home() {
   }, []);
   return (
     <>
-      <h1>Trending films</h1>
+      <h1 className={s.text}>Trending films</h1>
       {loading && <h3>Loading films....</h3>}
-      <ul>
-        {trendings.map(({ id, title }) => (
-          <li key={id}>
+      <ul className={s.list}>
+        {trendings.map(({ id, title, poster_path, name, original_title }) => (
+          <li key={id} className={s.item}>
             <Link to={`/movies/${id}`}>
-              <p className={s.text}> {title}</p>
+              <div>
+                <img
+                  className={s.img}
+                  src={
+                    poster_path
+                      ? `https://image.tmdb.org/t/p/w500${poster_path}`
+                      : placeHolder
+                  }
+                  alt={name ?? original_title}
+                />
+              </div>
+              <p className={s.link}> {title}</p>
             </Link>
           </li>
         ))}

@@ -14,6 +14,9 @@ function AppBar() {
           <Outlet />
         </Suspense>
       </main>
+      <footer>
+        <h2> rjytw</h2>
+      </footer>
     </>
   );
 }
