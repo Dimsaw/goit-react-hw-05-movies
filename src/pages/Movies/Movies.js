@@ -60,8 +60,11 @@ export default function Movies() {
           autoFocus
           name="query"
           value={searchQuery}
+          className={s.input}
         />
-        <button type="submit">Search</button>
+        <button className={s.btn} type="submit">
+          Search
+        </button>
       </form>
       {loading && <h3>Loading films....</h3>}
 

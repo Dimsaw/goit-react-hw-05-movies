@@ -1,0 +1,13 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  color: black;
+}
+
+.foto {
+  padding-top: 15px;
+}
+
+.link {
+  margin-bottom: 15px;
+}

@@ -2,6 +2,7 @@ import { useState, useEffect, Suspense } from 'react';
 import { getMovieDetails } from '../../secvices/API';
 import placeHolder from '../../images/no-image.jpeg';
 import { useParams, Link, Outlet, useLocation } from 'react-router-dom';
+import s from './MoviesDetails.module.css';
 
 export default function MoviesDetails() {
   const { movieId } = useParams();
@@ -30,10 +31,10 @@ export default function MoviesDetails() {
   return (
     <>
       {loading && <h3>Loading films....</h3>}
-      <Link to={backLink}> Go back </Link>
+      <Link to={backLink}>Go back</Link>
       {film && (
         <section>
-          <div>
+          <div className={s.foto}>
             <img
               src={
                 poster_path
@@ -64,10 +65,15 @@ export default function MoviesDetails() {
         </section>
       )}
       <section>
-        <div>
-          <h3>Additional information</h3>
+        <h3>Additional information</h3>
 
-          <Link to={`cast`} movieid={movieId} state={{ from: backLink }}>
+        <div className={s.list}>
+          <Link
+            to={`cast`}
+            movieid={movieId}
+            state={{ from: backLink }}
+            className={s.link}
+          >
             Cast
           </Link>
           <Link to={`reviews`} movieid={movieId} state={{ from: backLink }}>

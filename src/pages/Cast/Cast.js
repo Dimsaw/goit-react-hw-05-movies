@@ -43,8 +43,10 @@ export default function Cast() {
                   alt={name ?? original_name}
                 />
               </div>
-              {/* <h4 className={s.title}>Name: {name ?? original_name}</h4> */}
-              <h4 className={s.title}> Character: {character}</h4>
+              <div>
+                <h4 className={s.title}>Name: {name ?? original_name}</h4>
+                <h4 className={s.title}> Character: {character}</h4>
+              </div>
             </li>
           ))}
         </ul>
