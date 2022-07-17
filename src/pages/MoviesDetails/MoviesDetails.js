@@ -76,7 +76,12 @@ export default function MoviesDetails() {
           >
             Cast
           </Link>
-          <Link to={`reviews`} movieid={movieId} state={{ from: backLink }}>
+          <Link
+            to={`reviews`}
+            movieid={movieId}
+            state={{ from: backLink }}
+            className={s.link}
+          >
             Reviews
           </Link>
         </div>
