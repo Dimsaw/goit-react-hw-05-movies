@@ -5,9 +5,21 @@
 }
 
 .foto {
-  padding-top: 15px;
+  padding-top: 20px;
+}
+
+.image {
+  object-fit: cover;
+  display: block;
+    max-width: 70%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 4px 10px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 .link {
+  display: block;
+    max-width: 20%;
+    max-height: 20%;
   margin-bottom: 15px;
 }

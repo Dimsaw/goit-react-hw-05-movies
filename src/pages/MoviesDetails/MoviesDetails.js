@@ -36,6 +36,7 @@ export default function MoviesDetails() {
         <section>
           <div className={s.foto}>
             <img
+              className={s.image}
               src={
                 poster_path
                   ? `https://image.tmdb.org/t/p/w500${poster_path}`

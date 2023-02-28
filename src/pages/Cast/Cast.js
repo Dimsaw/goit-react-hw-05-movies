@@ -32,7 +32,7 @@ export default function Cast() {
         <ul className={s.list}>
           {cast.map(({ id, name, original_name, profile_path, character }) => (
             <li key={id} className={s.item}>
-              <div>
+              <div className={s.box}>
                 <img
                   className={s.img}
                   src={
