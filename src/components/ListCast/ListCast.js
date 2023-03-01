@@ -1,6 +1,6 @@
 import React from 'react';
 import placeHolder from '../../images/no-image.jpeg';
-import s from './Cast.module.css';
+import s from '../../pages/Cast/Cast.module.css';
 
 const ListCast = ({ cast }) => {
   return (

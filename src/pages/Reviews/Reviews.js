@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { getMovieReviews } from '../../secvices/API';
 import { useParams } from 'react-router-dom';
 
-import ListReviews from './ListReviews';
+import ListReviews from '../../components/ListReviews';
 
 export default function Reviews() {
   const { movieId } = useParams();

@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import { getMovieCredits } from '../../secvices/API';
 
 import { useState, useEffect } from 'react';
-import ListCast from './ListCast';
+import ListCast from '../../components/ListCast';
 import s from './Cast.module.css';
 
 export default function Cast() {

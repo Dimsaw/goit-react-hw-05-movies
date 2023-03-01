@@ -2,13 +2,13 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { getSearchMovies } from '../../secvices/API';
 import { useSearchParams } from 'react-router-dom';
-import ListMovies from './ListMovies';
+import ListFilms from '../../components/ListFilms';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import s from './Movies.module.css';
 
 export default function Movies() {
-  const [items, setItems] = useState([]);
+  const [item, setItem] = useState([]);
   const [loading, setLoading] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('query');
@@ -23,7 +23,7 @@ export default function Movies() {
         setLoading(true);
         const getSearchFilms = await getSearchMovies(query);
         if (getSearchFilms.results.length > 0) {
-          return setItems(getSearchFilms.results);
+          return setItem(getSearchFilms.results);
         } else {
           return toast.error('We did not find any movies for you!');
         }
@@ -66,7 +66,7 @@ export default function Movies() {
         </button>
       </form>
       {loading && <h3>Loading films....</h3>}
-      <ListMovies items={items} />
+      <ListFilms item={item} />
     </>
   );
 }

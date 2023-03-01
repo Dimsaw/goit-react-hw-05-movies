@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getTrending } from '../../secvices/API';
 
-import ListFilms from './ListFilms';
+import ListFilms from '../../components/ListFilms';
 import s from './Home.module.css';
 
 export default function Home() {
@@ -22,6 +22,7 @@ export default function Home() {
     };
     getMovies();
   }, []);
+
   return (
     <>
       <h1 className={s.text}>Trending films</h1>

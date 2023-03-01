@@ -1,4 +1,4 @@
-import s from './Home.module.css';
+import s from '../../pages/Home/Home.module.css';
 import placeHolder from '../../images/no-image.jpeg';
 import { Link } from 'react-router-dom';
 

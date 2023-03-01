@@ -1,5 +1,5 @@
 import placeHolder from '../../images/no-image.jpeg';
-import s from './MoviesDetails.module.css';
+import s from '../../pages/MoviesDetails/MoviesDetails.module.css';
 
 const ListMoviesDetails = ({ genres, film }) => {
   const { original_title, vote_average, overview, poster_path } = film;

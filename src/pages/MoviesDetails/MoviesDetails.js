@@ -1,7 +1,7 @@
 import { useState, useEffect, Suspense } from 'react';
 import { getMovieDetails } from '../../secvices/API';
 import { useParams, Link, Outlet, useLocation } from 'react-router-dom';
-import ListMoviesDetails from './ListMoviesDetails';
+import ListMoviesDetails from '../../components/ListMoviesDetails';
 import s from './MoviesDetails.module.css';
 
 export default function MoviesDetails() {
