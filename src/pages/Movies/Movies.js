@@ -36,7 +36,7 @@ export default function Movies() {
       }
     };
     searchMovies();
-  }, [query, setSearchParams]);
+  }, [query]);
 
   function onChangeInput(e) {
     setSearchQuery(e.currentTarget.value);
