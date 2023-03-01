@@ -1,17 +1,15 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { getSearchMovies } from '../../secvices/API';
-import { useLocation, useSearchParams, Link } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
+import ListMovies from './ListMovies';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import placeHolder from '../../images/no-image.jpeg';
 import s from './Movies.module.css';
 
 export default function Movies() {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(false);
-
-  const location = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('query');
   const [searchQuery, setSearchQuery] = useState(query ?? '');
@@ -62,32 +60,13 @@ export default function Movies() {
           value={searchQuery}
           className={s.input}
         />
+
         <button className={s.btn} type="submit">
           Search
         </button>
       </form>
       {loading && <h3>Loading films....</h3>}
-
-      <ul className={s.list}>
-        {items.map(({ id, title, poster_path, name, original_title }) => (
-          <li key={id} className={s.item}>
-            <Link to={`${id}`} state={{ from: location }}>
-              <div>
-                <img
-                  className={s.img}
-                  src={
-                    poster_path
-                      ? `https://image.tmdb.org/t/p/w500${poster_path}`
-                      : placeHolder
-                  }
-                  alt={name ?? original_title}
-                />
-              </div>
-              <p className={s.link}> {title}</p>
-            </Link>
-          </li>
-        ))}
-      </ul>
+      <ListMovies items={items} />
     </>
   );
 }
