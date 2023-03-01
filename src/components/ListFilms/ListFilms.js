@@ -1,13 +1,14 @@
-import s from '../../pages/Home/Home.module.css';
+import s from '../../pages/Movies/Movies.module.css';
 import placeHolder from '../../images/no-image.jpeg';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const ListFilms = ({ trendings }) => {
+  const location = useLocation();
   return (
     <ul className={s.list}>
       {trendings.map(({ id, title, poster_path, name, original_title }) => (
         <li key={id} className={s.item}>
-          <Link to={`/movies/${id}`}>
+          <Link to={`/movies/${id}`} state={{ from: location }}>
             <div>
               <img
                 className={s.img}

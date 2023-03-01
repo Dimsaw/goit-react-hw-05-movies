@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import s from './Movies.module.css';
 
 export default function Movies() {
-  const [item, setItem] = useState([]);
+  const [trendings, setTrendings] = useState([]);
   const [loading, setLoading] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('query');
@@ -23,7 +23,7 @@ export default function Movies() {
         setLoading(true);
         const getSearchFilms = await getSearchMovies(query);
         if (getSearchFilms.results.length > 0) {
-          return setItem(getSearchFilms.results);
+          return setTrendings(getSearchFilms.results);
         } else {
           return toast.error('We did not find any movies for you!');
         }
@@ -66,7 +66,7 @@ export default function Movies() {
         </button>
       </form>
       {loading && <h3>Loading films....</h3>}
-      <ListFilms item={item} />
+      <ListFilms trendings={trendings} />
     </>
   );
 }
