@@ -18,7 +18,7 @@ const ListMoviesDetails = ({ genres, film }) => {
       </div>
       <div>
         <h2> {original_title}</h2>
-        <p> User Score: {vote_average * 10}%</p>
+        <p> User Score: {Math.round(vote_average * 10)}%</p>
         {film && (
           <div>
             <h3>Genres</h3>
